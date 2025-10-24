@@ -11,7 +11,7 @@ steps:
 
   - label: "Test"
     plugins:
-      elastic/mise#initial:
+      elastic/mise#initial: ~
     command: |
       echo "hi"
       echo $(which mise)
