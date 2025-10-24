@@ -4,8 +4,18 @@ steps:
   - label: "Build"
     command: "true"
 
+  - label: "🐚 Lint"
+    plugins:
+      plugin-linter#v3.0.0:
+        id: elastic/mise
+
   - label: "Test"
-    command: "true"
+    plugins:
+      elastic/mise#initial:
+    command: |
+      echo "hi"
+      echo $(which mise)
+      yq --version
 
   - label: "Deploy"
     command: "true"

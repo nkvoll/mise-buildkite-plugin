@@ -1,0 +1,7 @@
+name: Mise Buildkite Plugin
+description: Activate Mise environment
+author: https://github.com/nkvoll
+requirements: []
+configuration:
+  properties: {}
+  additionalProperties: false

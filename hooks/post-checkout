@@ -1,0 +1,20 @@
+#!/bin/bash
+set -euo pipefail
+
+echo "--- Init mise-en-place"
+
+curl https://mise.run | sh
+
+PATH=$PATH:~/.local/bin
+
+mise trust
+
+if [ "${BUILDKITE_PLUGIN_MISE_INSTALL:-true}" != "false" ]; then
+  mise install
+fi
+
+if [ "$BUILDKITE_PLUGIN_MISE_ACTIVATE" != "false" ]; then
+  eval "$(mise activate bash)"
+fi
+
+echo "Installed mise: $(mise --version)"
