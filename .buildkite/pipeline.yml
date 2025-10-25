@@ -1,7 +1,7 @@
 ---
 # $yaml-language-server: $schema=https://raw.githubusercontent.com/buildkite/pipeline-schema/main/schema.json
 steps:
-  - label: "Triggering pipelines"
+  - label: "🔄 Triggering pipelines"
     plugins:
       monorepo-diff#v1.5.1:
         diff: ".buildkite/diff ${BUILDKITE_COMMIT}"
@@ -21,24 +21,15 @@ steps:
               command: "/agent/check-catalog-info.sh"
               agents:
                 image: "docker.elastic.co/ci-agent-images/pipelib:0.22.0@sha256:25503116fb91c18383b17aee528b9ca6e520ef58622c7f961c7d255bb8ba51f6"
-  - label: "Build"
-    command: "true"
 
   - label: "🐚 Lint"
     plugins:
-      plugin-linter#v3.0.0:
-        id: elastic/mise
+      - elastic/mise#main: ~
+    command: |
+      yamllint plugin.yml
 
-  - label: "Test"
+  - label: "🧪 Test"
     plugins:
       elastic/mise#main: ~
     command: |
-      echo "hi"
-      echo $(which mise)
       yq --version
-
-  - label: "Deploy"
-    command: "true"
-
-  - label: "Publish"
-    command: "true"

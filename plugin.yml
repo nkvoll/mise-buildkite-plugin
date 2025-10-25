@@ -1,8 +1,11 @@
+---
 name: Mise Buildkite Plugin
 description: Activate Mise environment
 author: https://github.com/nkvoll
 requirements: []
 configuration:
+  type: object
+  additionalProperties: false
   properties:
     trust:
       type: boolean
@@ -12,4 +15,7 @@ configuration:
       type: boolean
       default: true
       description: Activate the tools specified in the mise.toml file.
-  additionalProperties: false
+    activate_shims:
+      type: boolean
+      default: true
+      description: Activate using --shims.

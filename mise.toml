@@ -1,2 +1,4 @@
 [tools]
+pre-commit = "4.3.0"
+yamllint = "1.37.1"
 yq = "4.48.1"

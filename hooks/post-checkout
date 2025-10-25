@@ -8,12 +8,18 @@ curl https://mise.run | sh
 export PATH=$PATH:~/.local/bin
 
 if [ "${BUILDKITE_PLUGIN_MISE_TRUST:-true}" != "false" ]; then
+  # seems to be needed for tests, but not during actual builds?
   mise trust
 fi
 
 if [ "${BUILDKITE_PLUGIN_MISE_ACTIVATE:-true}" != "false" ]; then
-  eval "$(mise activate --shims)"
-  export PATH=$PATH:/root/.local/share/mise/shims
+  # support --shims
+  if [ "${BUILDKITE_PLUGIN_MISE_ACTIVATE_SHIMS:-true}" != "false" ]; then
+    eval "$(mise activate --shims)"
+    export PATH=$PATH:/root/.local/share/mise/shims
+  else
+    eval "$(mise activate)"
+  fi
 fi
 
-echo "Installed mise: $(mise --version)"
+echo "Installed mise version: $(mise --version)"
