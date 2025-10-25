@@ -28,4 +28,6 @@ if [ "${BUILDKITE_PLUGIN_MISE_INSTALL:-true}" != "false" ]; then
   mise install
 fi
 
+mise ls
+
 echo "Installed mise version: $(mise --version)"

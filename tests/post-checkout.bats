@@ -1,5 +1,7 @@
 #!/usr/bin/env bats
 
+export BUILDKITE_PLUGIN_MISE_ENV="test"
+
 setup() {
   load "$BATS_PLUGIN_PATH/load.bash"
 
@@ -8,10 +10,10 @@ setup() {
 }
 
 @test "installs mise" {
-  export BUILDKITE_PLUGIN_MISE_ACTIVATE="true"
-
   run $PWD/hooks/post-checkout
 
+  assert_output --partial "yq"
+  assert_output --partial "mise.test.toml"
   assert_output --partial "Installed mise version:"
   assert_success
 }
