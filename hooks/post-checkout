@@ -7,10 +7,8 @@ curl https://mise.run | sh
 
 export PATH=$PATH:~/.local/bin
 
-mise trust
-
-if [ "${BUILDKITE_PLUGIN_MISE_INSTALL:-true}" != "false" ]; then
-  mise install
+if [ "${BUILDKITE_PLUGIN_MISE_TRUST:-true}" != "false" ]; then
+  mise trust
 fi
 
 if [ "${BUILDKITE_PLUGIN_MISE_ACTIVATE:-true}" != "false" ]; then

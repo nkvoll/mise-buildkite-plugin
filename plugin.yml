@@ -4,10 +4,10 @@ author: https://github.com/nkvoll
 requirements: []
 configuration:
   properties:
-    install:
+    trust:
       type: boolean
       default: true
-      description: Install the tools specified in the mise.toml file.
+      description: Trust the mise.toml file.
     activate:
       type: boolean
       default: true
