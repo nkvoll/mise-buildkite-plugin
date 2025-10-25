@@ -38,4 +38,4 @@ steps:
     plugins:
       elastic/mise#main: ~
     command: |
-      pre-commit run --all
+      pre-commit run --all --show-diff-on-failure
