@@ -3,5 +3,13 @@ description: Activate Mise environment
 author: https://github.com/nkvoll
 requirements: []
 configuration:
-  properties: {}
+  properties:
+    install:
+      type: boolean
+      default: true
+      description: Install the tools specified in the mise.toml file.
+    activate:
+      type: boolean
+      default: true
+      description: Activate the tools specified in the mise.toml file.
   additionalProperties: false
