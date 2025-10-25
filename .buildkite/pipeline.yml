@@ -33,3 +33,9 @@ steps:
       elastic/mise#main: ~
     command: |
       yq --version
+
+  - label: "🧪 pre-commit"
+    plugins:
+      elastic/mise#main: ~
+    command: |
+      pre-commit run --all
