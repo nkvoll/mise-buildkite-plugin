@@ -34,7 +34,7 @@ steps:
     command: |
       yq --version
 
-  - label: "🧪 pre-commit"
+  - label: "🔬 pre-commit"
     plugins:
       elastic/mise#main: ~
     command: |

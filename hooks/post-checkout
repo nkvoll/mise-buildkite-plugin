@@ -12,6 +12,10 @@ if [ "${BUILDKITE_PLUGIN_MISE_TRUST:-true}" != "false" ]; then
   mise trust
 fi
 
+if [ "${BUILDKITE_PLUGIN_MISE_INSTALL:-true}" != "false" ]; then
+  mise install
+fi
+
 if [ "${BUILDKITE_PLUGIN_MISE_ACTIVATE:-true}" != "false" ]; then
   # support --shims
   if [ "${BUILDKITE_PLUGIN_MISE_ACTIVATE_SHIMS:-true}" != "false" ]; then
