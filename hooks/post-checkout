@@ -13,7 +13,7 @@ if [ "${BUILDKITE_PLUGIN_MISE_INSTALL:-true}" != "false" ]; then
   mise install
 fi
 
-if [ "$BUILDKITE_PLUGIN_MISE_ACTIVATE" != "false" ]; then
+if [ "${BUILDKITE_PLUGIN_MISE_ACTIVATE:-true}" != "false" ]; then
   eval "$(mise activate --shims)"
   export PATH=$PATH:/root/.local/share/mise/shims
 fi

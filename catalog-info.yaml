@@ -23,6 +23,8 @@ spec:
     spec:
       repository: elastic/mise-buildkite-plugin
       pipeline_file: ".buildkite/pipeline.yml"
+      provider_settings:
+        build_pull_request_forks: true
       teams:
         ingest-team:
           access_level: MANAGE_BUILD_AND_READ
