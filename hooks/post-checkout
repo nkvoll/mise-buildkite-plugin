@@ -5,7 +5,7 @@ echo "--- Init mise-en-place"
 
 curl https://mise.run | sh
 
-PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin
 
 mise trust
 
@@ -14,7 +14,8 @@ if [ "${BUILDKITE_PLUGIN_MISE_INSTALL:-true}" != "false" ]; then
 fi
 
 if [ "$BUILDKITE_PLUGIN_MISE_ACTIVATE" != "false" ]; then
-  eval "$(mise activate bash)"
+  eval "$(mise activate --shims)"
+  export PATH=$PATH:/root/.local/share/mise/shims
 fi
 
 echo "Installed mise: $(mise --version)"
