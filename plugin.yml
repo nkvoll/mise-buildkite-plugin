@@ -23,3 +23,7 @@ configuration:
       type: boolean
       default: true
       description: Activate using --shims.
+    env:
+      type: string
+      default: ""
+      description: Environment to use for mise commands
