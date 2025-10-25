@@ -3,3 +3,7 @@ pre-commit = "4.3.0"
 uv = "0.9.5"
 yamllint = "1.37.1"
 yq = "4.48.1"
+
+[settings]
+pin = true
+activate_aggressive = true
