@@ -30,4 +30,10 @@ fi
 
 mise ls
 
+if [ "${BUILDKITE_PLUGIN_MISE_REDACT:-true}" != "false" ]; then
+  for value in $(mise env --redacted --values); do
+    echo "$value" | buildkite-agent redactor add
+  done
+fi
+
 echo "Installed mise version: $(mise --version)"
