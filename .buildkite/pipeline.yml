@@ -30,7 +30,8 @@ steps:
 
   - label: "🧪 Test"
     plugins:
-      elastic/mise#main: ~
+      elastic/mise#main:
+        env: test
     command: |
       yq --version
 
