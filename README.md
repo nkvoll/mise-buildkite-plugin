@@ -2,7 +2,6 @@
 
 > **Warning:** This plugin is currently in a **proof-of-concept** state and is not intended to be used.
 
-Activate Mise Environment
 ## Example
 
 Add the following to your `pipeline.yml`:
@@ -11,5 +10,5 @@ Add the following to your `pipeline.yml`:
 steps:
   - command: ls
     plugins:
-      - elastic/mise#v1.0.0
+      - elastic/mise#v1.0.0: ~
 ```
