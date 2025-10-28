@@ -9,6 +9,8 @@ export PATH=$PATH:~/.local/bin
 
 export MISE_ENV="${BUILDKITE_PLUGIN_MISE_ENV:-}"
 
+echo "Using mise environment: ${MISE_ENV}"
+
 if [ "${BUILDKITE_PLUGIN_MISE_TRUST:-true}" != "false" ]; then
   # seems to be needed for tests, but not during actual builds?
   mise trust -a
