@@ -18,26 +18,19 @@ if [ "${BUILDKITE_PLUGIN_MISE_TRUST:-true}" != "false" ]; then
 fi
 
 if [ "${BUILDKITE_PLUGIN_MISE_ACTIVATE:-true}" != "false" ]; then
-  # support --shims
-  if [ "${BUILDKITE_PLUGIN_MISE_ACTIVATE_SHIMS:-true}" != "false" ]; then
-    echo "Running: mise activate --shims"
-    eval "$(mise activate --shims)"
-    export PATH=$PATH:/root/.local/share/mise/shims
-  else
-    echo "Running: mise activate"
-    eval "$(mise activate)"
-  fi
+  echo "Running: mise activate"
+  eval "$(mise activate)"
+fi
+
+# support --shims
+if [ "${BUILDKITE_PLUGIN_MISE_ACTIVATE_SHIMS:-true}" != "false" ]; then
+  echo "Running: mise activate --shims"
+  eval "$(mise activate --shims)"
 fi
 
 if [ "${BUILDKITE_PLUGIN_MISE_INSTALL:-true}" != "false" ]; then
-  # if MISE_ENV is non-empty:
-  if [ -n "${MISE_ENV}" ]; then
-    echo "Running: mise --env ${MISE_ENV} install"
-    mise --env ${MISE_ENV} install
-  else
-    echo "Running: mise install"
-    mise install
-  fi
+  echo "Running: mise install"
+  mise install
 fi
 
 mise ls
