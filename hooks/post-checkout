@@ -30,8 +30,14 @@ if [ "${BUILDKITE_PLUGIN_MISE_ACTIVATE:-true}" != "false" ]; then
 fi
 
 if [ "${BUILDKITE_PLUGIN_MISE_INSTALL:-true}" != "false" ]; then
-  echo "Running: mise install"
-  mise install
+  # if MISE_ENV is non-empty:
+  if [ -n "${MISE_ENV}" ]; then
+    echo "Running: mise --env ${MISE_ENV} install"
+    mise --env ${MISE_ENV} install
+  else
+    echo "Running: mise install"
+    mise install
+  fi
 fi
 
 mise ls
