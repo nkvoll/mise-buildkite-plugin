@@ -3,7 +3,11 @@ set -euo pipefail
 
 echo "--- Init mise-en-place"
 
+export MISE_VERSION="${BUILDKITE_PLUGIN_MISE_VERSION:-}"
+
 curl https://mise.run | sh
+
+echo "Installed mise version: $(mise --version)"
 
 export PATH=$PATH:~/.local/bin
 
@@ -42,4 +46,4 @@ if [ "${BUILDKITE_PLUGIN_MISE_REDACT:-true}" != "false" ]; then
   done
 fi
 
-echo "Installed mise version: $(mise --version)"
+echo "mise-en-place buildkite plugin setup complete"

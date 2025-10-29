@@ -7,6 +7,10 @@ configuration:
   type: object
   additionalProperties: false
   properties:
+    version:
+      type: string
+      default: ""
+      description: Version of Mise to install (e.g "YYYY.MM.DD").
     trust:
       type: boolean
       default: true

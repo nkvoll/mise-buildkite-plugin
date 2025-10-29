@@ -14,6 +14,6 @@ setup() {
 
   assert_output --partial "yq"
   assert_output --partial "mise.test.toml"
-  assert_output --partial "Installed mise version:"
+  assert_output --partial "mise-en-place buildkite plugin setup complete"
   assert_success
 }
