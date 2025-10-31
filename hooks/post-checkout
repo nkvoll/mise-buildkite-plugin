@@ -7,9 +7,9 @@ export MISE_VERSION="${BUILDKITE_PLUGIN_MISE_VERSION:-}"
 
 curl https://mise.run | sh
 
-echo "Installed mise version: $(mise --version)"
-
 export PATH=$PATH:~/.local/bin
+
+echo "Installed mise version: $(mise --version)"
 
 export MISE_ENV="${BUILDKITE_PLUGIN_MISE_ENV:-}"
 
